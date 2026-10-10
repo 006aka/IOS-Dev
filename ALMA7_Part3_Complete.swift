@@ -299,13 +299,3 @@ print(parts[0].label())
 // ==========================================
 let missionCode = "\(A)-\(B)-\(C)-\(D)"
 print("\nMISSION CODE: \(missionCode)")
-
-// ==========================================
-// Defense Questions
-// ==========================================
-/*
-1. Classes are reference types; their properties can be mutated without replacing the object itself, so `mutating` isn't required. Structs are value types and replacing their properties effectively replaces the whole instance, requiring `mutating`.
-2. Inheritance allows sharing of stored properties (state) and default method implementations through a base class. Protocols allow unrelated types (classes, structs, enums) to conform to a shared interface, which inheritance cannot do.
-3. `final` prevents a class from being subclassed, or a method/property from being overridden. Making `runOnce()` final protected the core shift ritual (checking and spending power) from being bypassed or altered by a subclass.
-4. Because `label()` was only in the protocol extension (not a requirement in the protocol definition), the compiler used static dispatch based on the variable's type (`Labelled`), invoking the generic version instead of dynamic dispatch which would check the actual instance type at runtime.
-*/
