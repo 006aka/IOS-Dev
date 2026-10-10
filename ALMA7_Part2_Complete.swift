@@ -322,14 +322,3 @@ class FlightRecorder {
 let D = AlarmLevel.level(forTotalMass: A).rawValue
 let integrityCode = "\(A)-\(B)-\(C)-\(D)"
 print("INTEGRITY CODE: \(integrityCode)")
-
-// ==========================================
-// Defense Questions & Answers
-// ==========================================
-/*
-1. Structs in Swift automatically generate a memberwise initializer, while classes do not because classes can have complex inheritance hierarchies where automatic initialization would be ambiguous.
-2. The `mutating` keyword tells the compiler that the method modifies the struct's properties. For structs (value types), this actually creates a new modified copy behind the scenes. Classes (reference types) don't need it because their instances are modified in place in memory.
-3. For a struct, `let` freezes the entire instance (all its properties) because it's a value type. For a class, `let` only freezes the reference (the pointer to the memory location), but the internal properties of that instance can still be modified (if they are declared as `var`).
-4. A `lazy` property must be `var` because its value is not calculated until the first time it is accessed. This means its initial value is effectively "uninitialized" and changes to a computed value after initialization is complete, which is only possible with `var`. If the lazy property's closure modifies some external state or has side effects (like fetching data from a network or incrementing a counter), accessing it multiple times or not accessing it at all will change the program's behavior.
-5. `private` restricts usage to the enclosing declaration (the class itself and extensions in the same file). `fileprivate` allows any code within the same Swift file to access the property. In `FlightRecorder`, if we need a helper function (free function) defined outside the class but in the same file to access internal data like `accessCount`, `private` would block it, but `fileprivate` allows it.
-*/
